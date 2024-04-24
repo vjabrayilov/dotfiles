@@ -1,5 +1,10 @@
 #!/bin/bash
 
+## TODO
+# - Fork ezsh and modify script not to prompt for username & password
+# - Make zsh default shell
+#
+#
 # A Bash script to setup Neovim, configure dotfiles, and install ezsh from a Git repository
 
 # Function to check if Git and curl are installed
