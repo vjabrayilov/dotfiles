@@ -37,21 +37,13 @@ function clone_dotfiles {
 
 # Copy .p10k.zsh to the home directory
 function copy_p10k {
-  if [ -f "dotfiles/.p10k.zsh" ]; then
     cp dotfiles/.p10k.zsh ~/
-  else
-    echo ".p10k.zsh file does not exist in the repository."
-  fi
 }
 
 # Set up nvim configuration
 function setup_nvim {
   mkdir -p ~/.config/nvim
-  if [ -d "dotfiles/.config/nvim" ]; then
     cp -r dotfiles/* ~/.config/nvim/
-  else
-    echo "No nvim configuration found in dotfiles."
-  fi
 }
 
 # Install Neovim
@@ -62,7 +54,7 @@ function install_neovim {
   rm nvim-linux64.tar.gz  # Clean up the tarball after installation
   # Update .zshrc to include Neovim in PATH
   if ! grep -q "/opt/nvim/bin" ~/.zshrc; then
-    echo 'export PATH="$PATH:/opt/nvim/bin"' >> ~/.zshrc
+    echo 'export PATH="$PATH:/opt/nvim-linux64/bin"' >> ~/.zshrc
   fi
 }
 
@@ -104,7 +96,8 @@ copy_p10k
 setup_nvim
 install_neovim
 copy_lkv
-clone_kernel
+source ~/.zshrc
+#clone_kernel
 
 echo "Setup and installation complete."
 
