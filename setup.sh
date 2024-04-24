@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# A Bash script to set up Neovim and configure dotfiles from a Git repository
+# A Bash script to setup Neovim, configure dotfiles, and install ezsh from a Git repository
 
 # Function to check if Git and curl are installed
 function check_dependencies {
@@ -12,6 +12,18 @@ function check_dependencies {
       sudo apt-get install $cmd -y
     fi
   done
+}
+
+# Clone and setup ezsh
+function setup_ezsh {
+  if [ ! -d "ezsh" ]; then
+    git clone https://github.com/jotyGill/ezsh.git
+    cd ezsh
+    sudo ./install.sh -c
+    cd -
+  else
+    echo "ezsh is already cloned and set up."
+  fi
 }
 
 # Clone the dotfiles repository
@@ -36,7 +48,7 @@ function copy_p10k {
 function setup_nvim {
   mkdir -p ~/.config/nvim
   if [ -d "dotfiles/.config/nvim" ]; then
-    cp -r dotfiles/.config/nvim/* ~/.config/nvim/
+    cp -r dotfiles/* ~/.config/nvim/
   else
     echo "No nvim configuration found in dotfiles."
   fi
@@ -56,6 +68,7 @@ function install_neovim {
 
 # Main execution sequence
 check_dependencies
+setup_ezsh
 clone_dotfiles
 copy_p10k
 setup_nvim
