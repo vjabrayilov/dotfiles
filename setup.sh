@@ -19,7 +19,7 @@ function setup_ezsh {
   if [ ! -d "ezsh" ]; then
     git clone https://github.com/jotyGill/ezsh.git
     cd ezsh
-    sudo ./install.sh -c
+    ./install.sh -c
     cd -
   else
     echo "ezsh is already cloned and set up."
@@ -66,6 +66,36 @@ function install_neovim {
   fi
 }
 
+# Copy the LKV helper scripts and add alias
+function copy_lkv {
+    git clone git@github.com:vjabrayilov/linux-kernel-vscode.git
+    cp linux-kernel-vscode/*.sh .
+    rm -rf linux-kernel-vscode
+
+    if ! grep -q "alias sudo=" ~/.zshrc; then
+        echo 'alias sudo="sudo "' >> ~/.zshrc
+    fi
+    if ! grep -q "alias lkv=" ~/.zshrc; then
+        echo 'alias lkv="bash ~/tasks.sh"' >> ~/.zshrc
+    fi
+}
+
+# Install Kernel and QEMU, KVM depdenencies
+
+function install_deps {
+    sudo apt update
+    sudo apt install -y gdb-multiarch ccache clang clangd llvm lld  \
+    libguestfs-tools libssl-dev trace-cmd python3-pip jsonnet libelf-dev bison \
+    bindfs mmdebstrap proot systemtap flex yacc bc fakeroot qemu qemu-system-x86 \
+    qemu-kvm libvirt-daemon-system virt-manager
+}
+
+# Clone Kernel repo
+
+function clone_kernel {
+    git clone git@github.com:columbia/vmsched-ghost-kernel.git
+}
+
 # Main execution sequence
 check_dependencies
 setup_ezsh
@@ -73,6 +103,8 @@ clone_dotfiles
 copy_p10k
 setup_nvim
 install_neovim
+copy_lkv
+clone_kernel
 
 echo "Setup and installation complete."
 
