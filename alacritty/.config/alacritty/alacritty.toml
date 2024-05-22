@@ -41,7 +41,7 @@ mods = "Command"
 hide_when_typing = true
 
 [window]
-decorations = "transparent"
+decorations = "full"
 startup_mode = "SimpleFullscreen"
 dynamic_title = true
 opacity = 0.85
