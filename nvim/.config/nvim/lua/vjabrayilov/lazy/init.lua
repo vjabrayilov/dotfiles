@@ -8,5 +8,11 @@ return {
     "github/copilot.vim",
     "eandrju/cellular-automaton.nvim",
     "gpanders/editorconfig.nvim",
-}
 
+    {
+        'numToStr/Comment.nvim',
+        name = "Comment",
+        lazy = false,
+    }
+
+}
