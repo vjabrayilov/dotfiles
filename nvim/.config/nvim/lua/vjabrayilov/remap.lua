@@ -55,3 +55,5 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+vim.keymap.set('n', '<C-x>', ':split<CR>') -- ctrl + x to split horizontally
+vim.keymap.set('n', '<C-v>', ':vsplit<CR>') -- ctrl + v to split vertically
