@@ -17,3 +17,4 @@ _fzf_compgen_dir() {
 }
 
 source  $HOME/fzf-git.sh/fzf-git.sh
+export BAT_THEME=Dracula

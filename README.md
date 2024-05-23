@@ -83,6 +83,7 @@ any command (like nvim or code) + `**Tab` |	Look for files & directories to comp
     fd
     fzf-git
      - git clone to the $HOME
+    bat
 
 -->
 ## fzf-git
