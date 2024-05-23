@@ -78,3 +78,21 @@ unalias `**Tab` |	Look for alias to unalias
 ssh `**Tab` |	Look for recently visited host names
 kill -9 `**Tab` | Look for process name to kill to get pid
 any command (like nvim or code) + `**Tab` |	Look for files & directories to complete command
+
+<!-- TODO: automate installing the following
+    fd
+    fzf-git
+     - git clone to the $HOME
+
+-->
+## fzf-git
+Keybinding |	Description
+CTRL-GF | 	Look for git files with fzf
+CTRL-GB | 	Look for git branches with fzf
+CTRL-GT | 	Look for git tags with fzf
+CTRL-GR | 	Look for git remotes with fzf
+CTRL-GH | 	Look for git commit hashes with fzf
+CTRL-GS | 	Look for git stashes with fzf
+CTRL-GL | 	Look for git reflogs with fzf
+CTRL-GW | 	Look for git worktrees with fzf
+CTRL-GE | 	Look for git for-each-ref with fzf

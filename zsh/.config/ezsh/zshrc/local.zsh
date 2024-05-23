@@ -16,3 +16,4 @@ _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
 
+source  $HOME/fzf-git.sh/fzf-git.sh
