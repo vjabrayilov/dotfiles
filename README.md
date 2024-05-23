@@ -59,3 +59,22 @@ Learn more [here](https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-s
 `gb2}` - Toggle until the 2 next blank line
 `gbaf` - Toggle comment around a function (w/ LSP/treesitter support)
 `gbac` - Toggle comment around a class (w/ LSP/treesitter support)
+
+## fzf
+Make the following table
+Table markdown 2 columns
+Example | Description
+CTRL-t |	Look for files and directories
+CTRL-r |	Look through command history
+Enter  |	Select the item
+Ctrl-j or Ctrl-n or Down arrow |	Go down one result
+Ctrl-k or Ctrl-p or Up arrow |	Go up one result
+Tab |	Mark a result
+Shift-Tab |	Unmark a result
+cd `**Tab` |	Open up fzf to find directory
+export `**Tab` |	Look for env variable to export
+unset `**Tab`	Look | for env variable to unset
+unalias `**Tab` |	Look for alias to unalias
+ssh `**Tab` |	Look for recently visited host names
+kill -9 `**Tab` | Look for process name to kill to get pid
+any command (like nvim or code) + `**Tab` |	Look for files & directories to complete command
