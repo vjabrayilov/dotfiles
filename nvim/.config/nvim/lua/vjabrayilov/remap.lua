@@ -57,3 +57,5 @@ end)
 
 vim.keymap.set('n', '<C-x>', ':split<CR>') -- ctrl + x to split horizontally
 vim.keymap.set('n', '<C-v>', ':vsplit<CR>') -- ctrl + v to split vertically
+
+vim.keymap.set('n', '<leader>g', ':Neogit<CR>') -- SPACE + g to open neogit
