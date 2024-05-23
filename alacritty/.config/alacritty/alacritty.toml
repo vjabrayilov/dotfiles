@@ -44,7 +44,7 @@ hide_when_typing = true
 decorations = "full"
 startup_mode = "SimpleFullscreen"
 dynamic_title = true
-opacity = 0.85
+opacity = 0.95
 title = "Alacritty"
 
 [window.padding]

@@ -44,4 +44,3 @@ alias ls="eza --color=always --long --git --icons=always "
 eval $(thefuck --alias fk)
 eval "$(zoxide init zsh)"
 
-alias cd="z"
