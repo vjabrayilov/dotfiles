@@ -44,7 +44,7 @@ Learn more [here](https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-s
 `gco` - Insert comment to the next line and enters INSERT mode
 `gcO` - Insert comment to the previous line and enters INSERT mode
 `gcA` - Insert comment to end of the current line and enters INSERT mode
-# Linewise
+#### Linewise
 
 `gcw` - Toggle from the current cursor position to the next word
 `gc$` - Toggle from the current cursor position to the end of line
@@ -54,7 +54,7 @@ Learn more [here](https://github.com/kylechui/nvim-surround/blob/main/doc/nvim-s
 `gcip` - Toggle inside of paragraph
 `gca}` - Toggle around curly brackets
 
-# Blockwise
+#### Blockwise
 
 `gb2}` - Toggle until the 2 next blank line
 `gbaf` - Toggle comment around a function (w/ LSP/treesitter support)
