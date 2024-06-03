@@ -29,14 +29,16 @@ return {
                 "lua_ls",
                 "rust_analyzer",
                 "tsserver",
+                "ruff_lsp",
+                "pyright",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
-
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
                 end,
+                ["rust_analyzer"] = function() end,
 
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
@@ -51,6 +53,34 @@ return {
                         }
                     }
                 end,
+                ["ruff_lsp"] = function()
+                    local on_attach = function(client, bufnr)
+                        if client.name == 'ruff_lsp' then
+                            -- Disable hover in favor of Pyright
+                            client.server_capabilities.hoverProvider = false
+                        end
+                    end
+
+                    require('lspconfig').ruff_lsp.setup {
+                        on_attach = on_attach,
+                    }
+                end,
+                ["pyright"] = function()
+                    require('lspconfig').pyright.setup {
+                        settings = {
+                            pyright = {
+                                -- Using Ruff's import organizer
+                                disableOrganizeImports = true,
+                            },
+                            python = {
+                                analysis = {
+                                    -- Ignore all files for analysis to exclusively use Ruff for linting
+                                    ignore = { '*' },
+                                },
+                            },
+                        },
+                    }
+                end
             }
         })
 
