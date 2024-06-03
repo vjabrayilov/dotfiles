@@ -18,6 +18,7 @@ return {
                         -- in all my projects
                         min_init = "./scripts/tests/minimal.vim",
                     }),
+                    require("rustaceanvim.neotest"),
                 }
             })
 
