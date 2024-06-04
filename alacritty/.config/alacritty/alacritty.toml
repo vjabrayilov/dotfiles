@@ -41,8 +41,8 @@ mods = "Command"
 hide_when_typing = true
 
 [window]
-decorations = "full"
-startup_mode = "SimpleFullscreen"
+decorations = "transparent"
+startup_mode = "Maximized"
 dynamic_title = true
 opacity = 0.95
 title = "Alacritty"
