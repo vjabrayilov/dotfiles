@@ -15,7 +15,7 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
-
+source $HOME/.p10k.zsh 
 source  $HOME/fzf-git.sh/fzf-git.sh
 export BAT_THEME=Dracula
 
