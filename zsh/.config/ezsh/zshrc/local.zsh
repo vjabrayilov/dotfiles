@@ -41,6 +41,4 @@ _fzf_comprun() {
 # ---- Eza (better ls) -----
 
 alias ls="eza --color=always --long --git --icons=always "
-eval $(thefuck --alias fk)
-eval "$(zoxide init zsh)"
 
