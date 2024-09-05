@@ -9,7 +9,7 @@
 
 # Function to check if Git and curl are installed
 function check_dependencies {
-  required_cmds="git curl"
+  required_cmds="git curl stow luarocks"
   for cmd in $required_cmds; do
     if ! command -v $cmd &> /dev/null; then
       echo "$cmd is not installed. Installing $cmd..."
@@ -92,6 +92,7 @@ function install_deps {
 function clone_kernel {
     git clone git@github.com:columbia/vmsched-ghost-kernel.git
 }
+
 
 # Main execution sequence
 check_dependencies
