@@ -2,7 +2,7 @@
 GITHUB_EMAIL="vjabrayilov@cs.columbia.edu"
 
 # Check if environment variables are set
-if [[-z "$GITHUB_TOKEN" ]]; then
+if [[ -z "$GITHUB_TOKEN" ]]; then
     echo "GITHUB_TOKEN environment variables must be set."
     exit 1
 fi
