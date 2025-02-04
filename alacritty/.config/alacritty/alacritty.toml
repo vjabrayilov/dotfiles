@@ -52,42 +52,66 @@ x = 10
 y = 20
 
 
-[colors.primary]
-background = '#191724'
-foreground = '#e0def4'
-
-[colors.cursor]
-text = '#e0def4'
-cursor = '#524f67'
-
-[colors.vi_mode_cursor]
-text = '#e0def4'
-cursor = '#524f67'
-
-[colors.selection]
-text = '#e0def4'
-background = '#403d52'
+[colors.bright]
+black = "#444b6a"
+blue = "#7da6ff"
+cyan = "#0db9d7"
+green = "#b9f27c"
+magenta = "#bb9af7"
+red = "#ff7a93"
+white = "#acb0d0"
+yellow = "#ff9e64"
 
 [colors.normal]
-black = '#26233a'
-red = '#eb6f92'
-green = '#31748f'
-yellow = '#f6c177'
-blue = '#9ccfd8'
-magenta = '#c4a7e7'
-cyan = '#ebbcba'
-white = '#e0def4'
+black = "#32344a"
+blue = "#7aa2f7"
+cyan = "#449dab"
+green = "#9ece6a"
+magenta = "#ad8ee6"
+red = "#f7768e"
+white = "#787c99"
+yellow = "#e0af68"
 
-[colors.bright]
-black = '#6e6a86'
-red = '#eb6f92'
-green = '#31748f'
-yellow = '#f6c177'
-blue = '#9ccfd8'
-magenta = '#c4a7e7'
-cyan = '#ebbcba'
-white = '#e0def4'
+[colors.primary]
+background = "#1a1b26"
+foreground = "#a9b1d6"
 
-[colors.hints]
-start = {foreground = '#908caa', background = '#1f1d2e' }
-end = { foreground = '#6e6a86', background = '#1f1d2e' }
+# [colors.primary]
+# background = '#191724'
+# foreground = '#e0def4'
+#
+# [colors.cursor]
+# text = '#e0def4'
+# cursor = '#524f67'
+#
+# [colors.vi_mode_cursor]
+# text = '#e0def4'
+# cursor = '#524f67'
+#
+# [colors.selection]
+# text = '#e0def4'
+# background = '#403d52'
+#
+# [colors.normal]
+# black = '#26233a'
+# red = '#eb6f92'
+# green = '#31748f'
+# yellow = '#f6c177'
+# blue = '#9ccfd8'
+# magenta = '#c4a7e7'
+# cyan = '#ebbcba'
+# white = '#e0def4'
+#
+# [colors.bright]
+# black = '#6e6a86'
+# red = '#eb6f92'
+# green = '#31748f'
+# yellow = '#f6c177'
+# blue = '#9ccfd8'
+# magenta = '#c4a7e7'
+# cyan = '#ebbcba'
+# white = '#e0def4'
+#
+# [colors.hints]
+# start = {foreground = '#908caa', background = '#1f1d2e' }
+# end = { foreground = '#6e6a86', background = '#1f1d2e' }
