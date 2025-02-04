@@ -26,3 +26,5 @@
 [commit]
 	template = ~/commit-template.txt
 
+[pull]
+	rebase = true
