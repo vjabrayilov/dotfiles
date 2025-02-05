@@ -1,6 +1,3 @@
--- This file can be loaded by calling `lua require("plugins")` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd.packadd("packer.nvim")
 
 return require("packer").startup(function(use)
@@ -22,15 +19,11 @@ return require("packer").startup(function(use)
             ts_update()
         end, }
     use("nvim-treesitter/playground")
-
     use("theprimeagen/vim-apm")
-
     use("theprimeagen/vim-be-good")
     use("theprimeagen/refactoring.nvim")
     use("mbbill/undotree")
     use("tpope/vim-fugitive")
-    --use("nvim-treesitter/nvim-treesitter-context");
-
     use {
         "VonHeikemen/lsp-zero.nvim",
         branch = "v1.x",
@@ -53,8 +46,6 @@ return require("packer").startup(function(use)
             { "rafamadriz/friendly-snippets" },
         }
     }
-
-    use("folke/zen-mode.nvim")
     use("github/copilot.vim")
     use("eandrju/cellular-automaton.nvim")
     use("laytan/cloak.nvim")
