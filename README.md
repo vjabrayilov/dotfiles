@@ -1,6 +1,85 @@
 ## Stow
 `.stow-local.ignore` is a file that contains a list of files that should be ignored by stow.
 ## Neovim
+
+Some about configuration goes here
+
+### Plugins
+
+1. [blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
+ - Adds indentation guides to Neovim
+2. [cloak](https://github.com/laytan/cloak.nvim?tab=readme-ov-file)
+ - Masks secrets in environment files
+3. colors
+ - Uses [Tokyonight](https://github.com/folke/tokyonight.nvim) theme
+4. [comment](https://github.com/numToStr/Comment.nvim)
+ - Powerful comment tool
+5. [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+ - Mark additions/removal on the left side
+ - Git blame
+ >TODO: add keymaps for this
+6. [harpoon](https://github.com/ThePrimeagen/harpoon/tree/harpoon2)
+ - Marks files and allows you to quickly switch between them
+ - `<leader>a` adds file to harpoon
+ - `<C-e>` toggles harpoon menu
+7. [illuminate](https://github.com/RRethy/vim-illuminate)
+ - Highlights word under cursor
+8. [iron](https://github.com/Vigemus/iron.nvim)
+ - REPL manager
+ - No need currently, but good to improve here...
+9. LSP
+ -
+10. [lualine](https://github.com/nvim-lualine/lualine.nvim)
+ - Adds a nice status line
+11. [neogen](https://github.com/danymat/neogen)
+ - Generates code for docstrings
+ - `<leader>nf` to generate for function
+ - `<leader>nt` to generate for type
+12. [neogit](https://github.com/NeogitOrg/neogit)
+ - Magit alternative
+13. [neotest](https://github.com/nvim-neotest/neotest)
+ - Interact with tests
+ - `<leader>tc` to run all tests
+ - `<leader>tf` to run current test
+14. [nvim-surround](https://github.com/kylechui/nvim-surround)
+ - Add/change/delete surrounding delimiter with ease
+ - TOOD: link with notes above for keymaps...
+15. [rustaceanvim](https://github.com/mrcjkb/rustaceanvim)
+ - Supercharges Rust experience
+ - Master this!
+16. [snippets](https://github.com/L3MON4D3/LuaSnip)
+ - Snippet engine
+ - TODO: needs work and mastery
+17. [telescope](https://github.com/nvim-telescope/telescope.nvim)
+ - Find/Filter/Preview/Pick
+ - `<leader>ff` to find files
+ - `<leader>fl` to live grep
+ - `<leader>fb` to find buffers
+ - `<leader>fh` to find help tags
+ - `<leader>fws` to find word under cursor
+ - `<leader>fWs` to combination under cursor
+18. [todo](https://github.com/folke/todo-comments.nvim)
+ - Higlight/list/search todo comments in the project
+ - TODO: add keymaps for ToC
+19. [treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+ - Abstraction layer for parser generator
+20. [trouble](https://github.com/folke/trouble.nvim)
+ - Pretty diagnostics
+ - `<leader>tt` to toggle trouble
+ - `<leader>tT` to toggle trouble for buffer
+ - `<leader>ts` to toggle symbol list
+ - `<leader>td` to toggle definition/reference list
+ - `<leader>tl` to toggle loclist
+ - `<leader>tq` to toggle quickfix list
+21. [undotree](https://github.com/mbbill/undotree)
+ - Visualize undo tree
+ - `<leader>u` to toggle undotree
+22. [vim-tmux](https://github.com/christoomey/vim-tmux-navigator)
+ - Seamless navigation between tmux and vim
+23.
+
+
+
 ### vim-surround
     Old text                    Command         New text
 --------------------------------------------------------------------------------
