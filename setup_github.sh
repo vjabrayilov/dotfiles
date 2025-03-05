@@ -1,4 +1,5 @@
 #!/bin/bash
+# Provided GITHUB_TOKEN, it will add an SSH key to the GithHub account.
 GITHUB_EMAIL="vjabrayilov@cs.columbia.edu"
 
 # Check if environment variables are set
