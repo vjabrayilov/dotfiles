@@ -18,7 +18,7 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 fi
 
 function check_dependencies {
-    echo "1️⃣  Checking required dependencies..."
+    echo "1. Checking required dependencies..."
     required_cmds=("curl" "stow" "luarocks" "tmux")
     for cmd in "${required_cmds[@]}"; do
         if ! command -v "$cmd" &> /dev/null; then
@@ -30,23 +30,19 @@ function check_dependencies {
 }
 
 function install_ezsh {
-    echo "2️⃣  Installing ezsh..."
+    echo "2. Installing ezsh..."
     if [ ! -d "ezsh" ]; then
-        # git clone https://github.com/jotyGill/ezsh.git > /dev/null 2>&1 || { echo "   ❌ Error: Failed to clone ezsh"; return 1; }
-        # cd ezsh || { echo "   ❌ Error: Failed to enter ezsh directory"; return 1; }
-        # ./install.sh -c > /dev/null 2>&1 || { echo "   ❌ Error: ezsh installation failed"; return 1; }
-        # cd - > /dev/null 2>&1
-        git clone https://github.com/jotyGill/ezsh.git
-        cd ezsh
-        ./install.sh -c
-        cd -
+        git clone https://github.com/vjabrayilov/ezsh.git > /dev/null 2>&1 || { echo "   ❌ Error: Failed to clone ezsh"; return 1; }
+        cd ezsh || { echo "   ❌ Error: Failed to enter ezsh directory"; return 1; }
+        ./install.sh -c > /dev/null 2>&1 || { echo "   ❌ Error: ezsh installation failed"; return 1; }
+        cd - > /dev/null 2>&1
     else
         echo "   ✅ ezsh is already installed."
     fi
 }
 
 function install_neovim {
-    echo "3️⃣  Installing Neovim..."
+    echo "3.  Installing Neovim..."
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz > /dev/null 2>&1 || { echo "   ❌ Error: Failed to download Neovim"; return 1; }
     sudo rm -rf /opt/nvim > /dev/null 2>&1
     sudo tar -C /opt -xzf nvim-linux64.tar.gz > /dev/null 2>&1 || { echo "   ❌ Error: Failed to extract Neovim"; return 1; }
@@ -57,7 +53,7 @@ function install_neovim {
 }
 
 function apply_dotfiles {
-    echo "4️⃣  Applying dotfiles..."
+    echo "4. Applying dotfiles..."
     DOTFILES_DIR="$HOME/dotfiles"
     if [ ! -d "$DOTFILES_DIR" ]; then
         echo "   ❌ Error: Dotfiles directory ($DOTFILES_DIR) not found!"
