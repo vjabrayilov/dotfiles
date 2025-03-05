@@ -34,14 +34,6 @@ function install_ezsh {
   fi
 }
 
-function clone_dotfiles {
-  if [ ! -d "dotfiles" ]; then
-    git clone git@github.com:vjabrayilov/dotfiles.git $HOME/config
-  else
-    echo "Dotfiles repository already cloned."
-  fi
-}
-
 function finalize {
     stow $HOME/nvim
     stow $HOME/zsh
@@ -64,7 +56,6 @@ function setup_dev {
     check_dependencies
     install_ezsh
     install_neovim
-    clone_dotfiles
     finalize
 }
 
