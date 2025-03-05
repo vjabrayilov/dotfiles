@@ -27,10 +27,9 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
+                "ruff",
                 "rust_analyzer",
-                "tsserver",
-                "ruff_lsp",
-                "pyright",
+                "clangd",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -38,7 +37,29 @@ return {
                         capabilities = capabilities
                     }
                 end,
-                ["rust_analyzer"] = function() end,
+                ["rust_analyzer"] = function()
+                    -- local lspconfig = require("lspconfig")
+                    -- lspconfig.rust_analyzer.setup {
+                    --     capabilities = capabilities,
+                    --     settings = {
+                    --         ["rust-analyzer"] = {
+                    --             cargo = {
+                    --                 allFeatures = true,
+                    --             },
+                    --             imports = {
+                    --                 group = {
+                    --                     enable = false,
+                    --                 },
+                    --             },
+                    --             completion = {
+                    --                 postfix = {
+                    --                     enable = false,
+                    --                 },
+                    --             },
+                    --         },
+                    --     },
+                    -- }
+                end,
 
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
@@ -53,34 +74,28 @@ return {
                         }
                     }
                 end,
-                ["ruff_lsp"] = function()
-                    local on_attach = function(client, bufnr)
-                        if client.name == 'ruff_lsp' then
-                            -- Disable hover in favor of Pyright
-                            client.server_capabilities.hoverProvider = false
-                        end
+                ["ruff"] = function()
+                    local lspconfig = require("lspconfig")
+                    local configs = require 'lspconfig.configs'
+                    if not configs.ruff_lsp and vim.fn.executable('ruff-lsp') == 1 then
+                        configs.ruff_lsp = {
+                            default_config = {
+                                cmd = { 'ruff-lsp' },
+                                filetypes = { 'python' },
+                                root_dir = require('lspconfig').util.find_git_ancestor,
+                                init_options = {
+                                    settings = {
+                                        args = {}
+                                    }
+                                }
+                            }
+                        }
                     end
-
-                    require('lspconfig').ruff_lsp.setup {
-                        on_attach = on_attach,
-                    }
+                    if configs.ruff_lsp then
+                        lspconfig.ruff_lsp.setup {}
+                    end
                 end,
-                ["pyright"] = function()
-                    require('lspconfig').pyright.setup {
-                        settings = {
-                            pyright = {
-                                -- Using Ruff's import organizer
-                                disableOrganizeImports = true,
-                            },
-                            python = {
-                                analysis = {
-                                    -- Ignore all files for analysis to exclusively use Ruff for linting
-                                    ignore = { '*' },
-                                },
-                            },
-                        },
-                    }
-                end
+
             }
         })
 
