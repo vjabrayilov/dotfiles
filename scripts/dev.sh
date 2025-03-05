@@ -43,8 +43,10 @@ function clone_dotfiles {
 }
 
 function finalize {
-    cp $HOME/config/.p10k.zsh ~/
-    source ~/.zshrc
+    stow $HOME/nvim
+    stow $HOME/zsh
+    stow $HOME/p10k
+    stow $HOME/tmux
     echo "Setup and installation complete."
 }
 
