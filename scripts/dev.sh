@@ -39,7 +39,7 @@ function install_ezsh {
     else
         echo "   ✅ ezsh is already installed."
     fi
-    build-fzf-tab-module
+    /bin/zsh -i -c build-fzf-tab-module
 }
 
 
