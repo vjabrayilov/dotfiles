@@ -28,9 +28,9 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
-                "ruff_lsp",
                 "ts_ls",
                 "pyright",
+                "ruff",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -53,15 +53,15 @@ return {
                         }
                     }
                 end,
-                ["ruff_lsp"] = function()
+                ["ruff"] = function()
                     local on_attach = function(client, bufnr)
-                        if client.name == 'ruff_lsp' then
+                        if client.name == 'ruff' then
                             -- Disable hover in favor of Pyright
                             client.server_capabilities.hoverProvider = false
                         end
                     end
 
-                    require('lspconfig').ruff_lsp.setup {
+                    require('lspconfig').ruff.setup {
                         on_attach = on_attach,
                     }
                 end,
