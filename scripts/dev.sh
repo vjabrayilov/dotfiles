@@ -19,7 +19,7 @@ fi
 
 function check_dependencies {
     echo "1. Checking required dependencies..."
-    required_cmds=("curl" "stow" "luarocks" "tmux")
+    required_cmds=("curl" "stow" "luarocks" "tmux" "make", "gcc", "g++", "python3")
     for cmd in "${required_cmds[@]}"; do
         if ! command -v "$cmd" &> /dev/null; then
             echo "   🔄 Installing missing dependency: $cmd"
