@@ -39,7 +39,9 @@ function install_ezsh {
     else
         echo "   ✅ ezsh is already installed."
     fi
+    build-fzf-tab-module
 }
+
 
 function install_neovim {
     echo "3.  Installing Neovim..."
