@@ -15,7 +15,7 @@ _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
 source $HOME/.p10k.zsh
-source $HOME/fzf-git.sh
+source $HOME/fzf-git.sh/fzf-git.sh
 export BAT_THEME=Dracula
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
