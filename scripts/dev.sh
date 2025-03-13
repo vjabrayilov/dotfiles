@@ -34,12 +34,13 @@ function install_ezsh {
     echo "2. Installing ezsh..."
     if [ ! -d "ezsh" ]; then
         git clone https://github.com/vjabrayilov/ezsh.git > /dev/null 2>&1 || { echo "   ❌ Error: Failed to clone ezsh"; return 1; }
-        cd ezsh || { echo "   ❌ Error: Failed to enter ezsh directory"; return 1; }
-        ./install.sh -c > /dev/null 2>&1 || { echo "   ❌ Error: ezsh installation failed"; return 1; }
-        cd - > /dev/null 2>&1
     else
-        echo "   ✅ ezsh is already installed."
+        echo "   ✅ ezsh is already cloned."
     fi
+
+    cd ezsh || { echo "   ❌ Error: Failed to enter ezsh directory"; return 1; }
+    ./install.sh -c > /dev/null 2>&1 || { echo "   ❌ Error: ezsh installation failed"; return 1; }
+    cd - > /dev/null 2>&1
     /bin/zsh -i -c build-fzf-tab-module
 }
 
