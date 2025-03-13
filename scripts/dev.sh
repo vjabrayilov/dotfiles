@@ -40,7 +40,7 @@ function install_ezsh {
     else
         echo "   ✅ ezsh is already installed."
     fi
-    /bin/zsh -i -c build-fzf-tab-module > /dev/null 2>&1 || { echo "   ❌ Error: Failed to build fzf-tab module"; return 1; }
+    /bin/zsh -i -c build-fzf-tab-module
 }
 
 
