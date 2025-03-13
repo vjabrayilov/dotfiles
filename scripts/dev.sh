@@ -34,21 +34,55 @@ function check_dependencies {
 
 function install_ezsh {
     echo "2. Installing ezsh..."
+
     if [ ! -d "ezsh" ]; then
-        git clone https://github.com/vjabrayilov/ezsh.git > /dev/null 2>&1 || { echo "   ❌ Error: Failed to clone ezsh"; return 1; }
+        git clone https://github.com/vjabrayilov/ezsh.git > /dev/null 2>&1 || {
+            echo "   ❌ Error: Failed to clone ezsh"
+            return 1
+        }
     else
         echo "   ✅ ezsh is already cloned."
     fi
 
-    cd ezsh || { echo "   ❌ Error: Failed to enter ezsh directory"; return 1; }
-    git pull
-    # ./install.sh -c > /dev/null 2>&1 || { echo "   ❌ Error: ezsh installation failed"; return 1; }
-     ./install.sh -c | tail -n 10
+    cd ezsh || {
+        echo "   ❌ Error: Failed to enter ezsh directory"
+        return 1
+    }
+
+    git pull > /dev/null 2>&1
+
+    ./install.sh -c 2>&1 | tail -n 10
+
     cd - > /dev/null 2>&1
-    logfile="/tmp/fzf-tab-build.log"
-    /bin/zsh -i -c build-fzf-tab-module > "$logfile" 2>&1 &
-    watch -n 1 "tail -n 10 "$logfile""
+
+    /bin/zsh -i -c build-fzf-tab-module 2>&1 | while IFS= read -r line; do
+        buffer+=("$line")
+        if [ "${#buffer[@]}" -gt 10 ]; then
+            buffer=("${buffer[@]:1}")
+        fi
+        clear
+        printf '%s\n' "${buffer[@]}"
+    done
 }
+
+
+# function install_ezsh {
+#     echo "2. Installing ezsh..."
+#     if [ ! -d "ezsh" ]; then
+#         git clone https://github.com/vjabrayilov/ezsh.git > /dev/null 2>&1 || { echo "   ❌ Error: Failed to clone ezsh"; return 1; }
+#     else
+#         echo "   ✅ ezsh is already cloned."
+#     fi
+#
+#     cd ezsh || { echo "   ❌ Error: Failed to enter ezsh directory"; return 1; }
+#     git pull
+#     # ./install.sh -c > /dev/null 2>&1 || { echo "   ❌ Error: ezsh installation failed"; return 1; }
+#      ./install.sh -c | tail -n 10
+#     cd - > /dev/null 2>&1
+#     logfile="/tmp/fzf-tab-build.log"
+#     /bin/zsh -i -c build-fzf-tab-module > "$logfile" 2>&1 &
+#     watch -n 1 "tail -n 10 "$logfile""
+# }
 
 
 function install_neovim {
