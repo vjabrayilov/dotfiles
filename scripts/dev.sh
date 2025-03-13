@@ -39,6 +39,7 @@ function install_ezsh {
     fi
 
     cd ezsh || { echo "   ❌ Error: Failed to enter ezsh directory"; return 1; }
+    git pull
     ./install.sh -c > /dev/null 2>&1 || { echo "   ❌ Error: ezsh installation failed"; return 1; }
     cd - > /dev/null 2>&1
     /bin/zsh -i -c build-fzf-tab-module
