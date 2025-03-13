@@ -47,7 +47,7 @@ function install_ezsh {
     cd - > /dev/null 2>&1
     logfile="/tmp/fzf-tab-build.log"
     /bin/zsh -i -c build-fzf-tab-module > "$logfile" 2>&1 &
-    tail -f "$logfile"
+    watch -n 1 "tail -n 10 "$logfile""
 }
 
 
