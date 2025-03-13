@@ -49,19 +49,7 @@ function install_ezsh {
     git pull > /dev/null 2>&1
     ./install.sh -c 2>&1 | tail -n 10
     cd - > /dev/null 2>&1
-    tput sc
-    buffer=()
-    /bin/zsh -i -c build-fzf-tab-module 2>&1 | while IFS= read -r line; do
-        buffer+=("$line")
-        if [ "${#buffer[@]}" -gt 10 ]; then
-            buffer=("${buffer[@]:1}")
-        fi
-        tput rc
-        tput ed
-        for b in "${buffer[@]}"; do
-            echo "$b"
-        done
-    done
+    /bin/zsh -i -c build-fzf-tab-module > /dev/null 2>&1
 }
 
 function install_neovim {
