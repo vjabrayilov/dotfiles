@@ -39,6 +39,7 @@ _fzf_comprun() {
 }
 # ---- Eza (better ls) -----
 
+plugins+=(vim)
 export PATH=$PATH:~/.local/bin
 alias ls="eza --color=always --long --git --icons=always "
 

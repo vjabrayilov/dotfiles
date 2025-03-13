@@ -1,12 +1,6 @@
-
 #!/bin/bash
 
-## TODO
-# - Fork ezsh and modify script not to prompt for username & password
-# - Make zsh default shell
-# A Bash script to setup Neovim, configure dotfiles, and install ezsh from a Git repository
-#
-# TODO: For dev machine we need the following
+# For dev machine we need the following
 # 1. Install ezsh
 # 2. Install tmux
 # 3. Install neovim
