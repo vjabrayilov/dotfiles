@@ -62,11 +62,21 @@ function apply_dotfiles {
         echo "   ❌ Error: Dotfiles directory ($DOTFILES_DIR) not found!"
         return 1
     fi
+
     cd "$DOTFILES_DIR"
     for config in nvim zsh p10k tmux; do
         stow "$config" > /dev/null 2>&1 || echo "   ❌ Error: Failed to stow $config"
     done
     cd "$HOME"
+
+    # Install tmux plugin manager
+    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+        echo "   🔄 Installing tmux plugin manager..."
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    else
+        echo "   ✅ Tmux plugin manager already installed."
+    fi
+
     echo "   ✅ Dotfiles applied successfully."
 }
 
