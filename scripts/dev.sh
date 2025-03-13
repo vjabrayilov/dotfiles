@@ -45,12 +45,12 @@ function install_ezsh {
 
 function install_neovim {
     echo "3.  Installing Neovim..."
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz > /dev/null 2>&1 || { echo "   ❌ Error: Failed to download Neovim"; return 1; }
+    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz > /dev/null 2>&1 || { echo "   ❌ Error: Failed to download Neovim"; return 1; }
     sudo rm -rf /opt/nvim > /dev/null 2>&1
-    sudo tar -C /opt -xzf nvim-linux64.tar.gz > /dev/null 2>&1 || { echo "   ❌ Error: Failed to extract Neovim"; return 1; }
-    rm nvim-linux64.tar.gz > /dev/null 2>&1
+    sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz > /dev/null 2>&1 || { echo "   ❌ Error: Failed to extract Neovim"; return 1; }
+    rm nvim-linux-x86_64.tar.gz > /dev/null 2>&1
     if ! grep -q "/opt/nvim/bin" ~/.zshrc; then
-        echo 'export PATH="$PATH:/opt/nvim-linux64/bin"' >> ~/.zshrc
+        echo 'export PATH="$PATH:/opt/nvim-linux-x86_64/bin"' >> ~/.zshrc
     fi
 }
 
