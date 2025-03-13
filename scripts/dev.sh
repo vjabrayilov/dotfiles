@@ -23,8 +23,10 @@ function check_dependencies {
     sudo apt-get update > /dev/null 2>&1 || echo "   ❌ Error: Failed to update package list"
     sudo apt-get upgrade -y  > /dev/null 2>&1 || echo "   ❌ Error: Failed to upgrade package list"
     for cmd in "${required_cmds[@]}"; do
-        if ! command -v "$cmd" &> /dev/null || [[ "$cmd" == "python3.10-venv" ]]; then
-            echo "   🔄 Installing missing dependency: $cmd"
+        if ! command -v "$cmd" &> /dev/null || then
+            if  ![[ "$cmd" == "python3.10-venv" ]]; then
+                echo "   🔄 Installing missing dependency: $cmd"
+            fi
             sudo apt-get install -y "$cmd" > /dev/null 2>&1 || echo "   ❌ Error: Failed to install $cmd"
         fi
     done
