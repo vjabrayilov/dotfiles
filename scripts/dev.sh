@@ -19,12 +19,12 @@ fi
 
 function check_dependencies {
     echo "1. Checking required dependencies..."
-    required_cmds=("curl" "stow" "luarocks" "tmux" "make" "gcc" "g++" "python3")
+    required_cmds=("curl" "stow" "luarocks" "tmux" "make" "gcc" "g++" "python3" "python3.10-venv")
+    sudo apt-get update > /dev/null 2>&1 || echo "   ❌ Error: Failed to update package list"
+    sudo apt-get upgrade -y  > /dev/null 2>&1 || echo "   ❌ Error: Failed to upgrade package list"
     for cmd in "${required_cmds[@]}"; do
         if ! command -v "$cmd" &> /dev/null; then
             echo "   🔄 Installing missing dependency: $cmd"
-            sudo apt-get update > /dev/null 2>&1 || echo "   ❌ Error: Failed to update package list"
-            sudo apt-get upgrade -y  > /dev/null 2>&1 || echo "   ❌ Error: Failed to upgrade package list"
             sudo apt-get install -y "$cmd" > /dev/null 2>&1 || echo "   ❌ Error: Failed to install $cmd"
         fi
     done
