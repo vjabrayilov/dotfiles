@@ -45,7 +45,9 @@ function install_ezsh {
     # ./install.sh -c > /dev/null 2>&1 || { echo "   ❌ Error: ezsh installation failed"; return 1; }
      ./install.sh -c | tail -n 10
     cd - > /dev/null 2>&1
-    # /bin/zsh -i -c build-fzf-tab-module | tail -n 10
+    logfile="/tmp/fzf-tab-build.log"
+    /bin/zsh -i -c build-fzf-tab-module > "$logfile" 2>&1 &
+    tail -f "$logfile"
 }
 
 
