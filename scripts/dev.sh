@@ -19,11 +19,12 @@ fi
 
 function check_dependencies {
     echo "1. Checking required dependencies..."
-    required_cmds=("curl" "stow" "luarocks" "tmux" "make", "gcc", "g++", "python3")
+    required_cmds=("curl" "stow" "luarocks" "tmux" "make" "gcc" "g++" "python3")
     for cmd in "${required_cmds[@]}"; do
         if ! command -v "$cmd" &> /dev/null; then
             echo "   🔄 Installing missing dependency: $cmd"
             sudo apt-get update > /dev/null 2>&1 || echo "   ❌ Error: Failed to update package list"
+            sudo apt-get upgrade -y  > /dev/null 2>&1 || echo "   ❌ Error: Failed to upgrade package list"
             sudo apt-get install -y "$cmd" > /dev/null 2>&1 || echo "   ❌ Error: Failed to install $cmd"
         fi
     done
@@ -44,7 +45,7 @@ function install_ezsh {
 
 
 function install_neovim {
-    echo "3.  Installing Neovim..."
+    echo "3. Installing Neovim..."
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz > /dev/null 2>&1 || { echo "   ❌ Error: Failed to download Neovim"; return 1; }
     sudo rm -rf /opt/nvim > /dev/null 2>&1
     sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz > /dev/null 2>&1 || { echo "   ❌ Error: Failed to extract Neovim"; return 1; }
