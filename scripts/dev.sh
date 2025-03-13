@@ -23,7 +23,7 @@ function check_dependencies {
     sudo apt-get update > /dev/null 2>&1 || echo "   ❌ Error: Failed to update package list"
     sudo apt-get upgrade -y  > /dev/null 2>&1 || echo "   ❌ Error: Failed to upgrade package list"
     for cmd in "${required_cmds[@]}"; do
-        if ! command -v "$cmd" &> /dev/null; then
+        if ! command -v "$cmd" &> /dev/null || cmd == "python3.10-venv" ; then
             echo "   🔄 Installing missing dependency: $cmd"
             sudo apt-get install -y "$cmd" > /dev/null 2>&1 || echo "   ❌ Error: Failed to install $cmd"
         fi
@@ -40,9 +40,10 @@ function install_ezsh {
 
     cd ezsh || { echo "   ❌ Error: Failed to enter ezsh directory"; return 1; }
     git pull
-    ./install.sh -c > /dev/null 2>&1 || { echo "   ❌ Error: ezsh installation failed"; return 1; }
+    # ./install.sh -c > /dev/null 2>&1 || { echo "   ❌ Error: ezsh installation failed"; return 1; }
+     ./install.sh -c | tail -n 10
     cd - > /dev/null 2>&1
-    /bin/zsh -i -c build-fzf-tab-module
+    /bin/zsh -i -c build-fzf-tab-module | tail -n 10
 }
 
 
