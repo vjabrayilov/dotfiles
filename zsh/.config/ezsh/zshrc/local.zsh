@@ -39,5 +39,6 @@ _fzf_comprun() {
 }
 # ---- Eza (better ls) -----
 
+export PATH=$PATH:~/.local/bin
 alias ls="eza --color=always --long --git --icons=always "
 
