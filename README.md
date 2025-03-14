@@ -76,7 +76,7 @@ Some about configuration goes here
  - `<leader>u` to toggle undotree
 22. [vim-tmux](https://github.com/christoomey/vim-tmux-navigator)
  - Seamless navigation between tmux and vim
-23.
+23. leap
 
 
 
