@@ -73,9 +73,8 @@ function apply_dotfiles {
     for config in nvim zsh p10k tmux; do
         stow "$config" > /dev/null 2>&1 || echo "   ❌ Error: Failed to stow $config"
     done
-    cd "$HOME"
 
-    # Install tmux plugin manager
+    cd "$HOME"
     if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
         echo "   🔄 Installing tmux plugin manager..."
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
