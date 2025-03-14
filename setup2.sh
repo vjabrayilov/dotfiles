@@ -13,7 +13,7 @@ if [ $# -lt 1 ] ; then
 fi
 
 case $1 in
-	"dev_env")
+	"dev")
         setup_dev ;;
 	*)
 		echo "Error: unknown mode was selected"
