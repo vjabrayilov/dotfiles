@@ -25,5 +25,4 @@ function setup_virtualization {
     install_dependencies
     sudo usermod -aG libvirt,kvm $USER
     echo "After reboot, check kvm-ok and virt-host-validate"
-    echo "If you get freezer/devices related warnings, consider running scripts/force-cgroup-v1.sh to force cgroup v1"
 }
