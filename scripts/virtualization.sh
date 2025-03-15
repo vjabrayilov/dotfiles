@@ -23,11 +23,10 @@ function install_dependencies {
 
 function setup_virtualization {
     echo "Setting up a virtualization environment..."
-
     install_dependencies
-    sudo adduser $USER kvm
-
+    sudo usermod -aG libvirt,kvm $USER
     echo "Please add GRUB_CMDLINE_LINUX_DEFAULT='intel_iommu=on iommu=pt noht nosmt systemd.unified_cgroup_hierarchy=0'"
+    echo "On Ubuntu 24+ add 'systemd.legacy_systemd_cgroup_controller=yes' as well"
     echo "to /etc/default/grub and run 'sudo update-grub' followed by a reboot."
     echo "After reboot, check kvm-ok and virt-host-validate"
 }
