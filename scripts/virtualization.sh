@@ -7,7 +7,7 @@ fi
 
 function install_dependencies {
     echo "1. Installing required dependencies..."
-    deps=("virtme-ng "socat" "virtiofsd"  qemu-system-x86" "qemu-kvm" "libvirt-daemon-system" "libguestfs-tools" "virt-manager")
+    deps=("virtme-ng" "socat" "virtiofsd"  "qemu-system-x86" "qemu-kvm" "libvirt-daemon-system" "libguestfs-tools" "virt-manager")
     sudo apt-get update > /dev/null 2>&1 || echo "   ❌ Error: Failed to update package list"
     sudo apt-get upgrade -y > /dev/null 2>&1 || echo "   ❌ Error: Failed to upgrade package list"
     for dep in "${deps[@]}"; do
