@@ -51,6 +51,14 @@ function install_ezsh {
     /bin/zsh -i -c build-fzf-tab-module > /dev/null 2>&1
 }
 
+function install_node {
+    # Needed for Copilot in Neovim
+    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - > /dev/null 2>&1
+    sudo apt install -y nodejs > /dev/null 2>&1
+    node -v
+    npm -v
+}
+
 function install_neovim {
     echo "3. Installing Neovim..."
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz > /dev/null 2>&1 || { echo "   ❌ Error: Failed to download Neovim"; return 1; }
@@ -91,6 +99,7 @@ function setup_dev {
     check_dependencies
     install_ezsh
     install_neovim
+    install_node
     apply_dotfiles
     echo "🎉 Setup and installation complete!"
 }
