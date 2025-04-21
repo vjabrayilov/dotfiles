@@ -47,38 +47,52 @@ function install_tools {
 function configure_tools {
 	local VERSION="$1"
 
-	echo "Configuring update-alternatives for Clang/LLVM tools..."
+	echo "Configuring update-alternatives for Clang/LLVM tools... ${VERSION}"
 	# clang
 	sudo update-alternatives \
 		--install /usr/bin/clang clang /usr/bin/clang-${VERSION} 100
+    sudo update-alternatives --set clang /usr/bin/clang-${VERSION}
 	# clang++
 	sudo update-alternatives \
 		--install /usr/bin/clang++ clang++ /usr/bin/clang++-${VERSION} 100
+    sudo update-alternatives --set clang++ /usr/bin/clang++-${VERSION}
 	# clang-format
 	sudo update-alternatives \
 		--install /usr/bin/clang-format clang-format /usr/bin/clang-format-${VERSION} 100
+    sudo update-alternatives --set clang-format /usr/bin/clang-format-${VERSION}
 	# clang-tidy
 	sudo update-alternatives \
 		--install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-${VERSION} 100
+    sudo update-alternatives --set clang-tidy /usr/bin/clang-tidy-${VERSION}
 	# clangd
 	if [ -x "/usr/bin/clangd-${VERSION}" ]; then
 		sudo update-alternatives \
 			--install /usr/bin/clangd clangd /usr/bin/clangd-${VERSION} 100
+    sudo update-alternatives --set clangd /usr/bin/clangd-${VERSION}
 	fi
 	# lldb
 	if [ -x "/usr/bin/lldb-${VERSION}" ]; then
 		sudo update-alternatives \
 			--install /usr/bin/lldb lldb /usr/bin/lldb-${VERSION} 100
+    sudo update-alternatives --set lldb /usr/bin/lldb-${VERSION}
 	fi
 	# lldb-server (if available)
 	if [ -x "/usr/bin/lldb-server-${VERSION}" ]; then
 		sudo update-alternatives \
 			--install /usr/bin/lldb-server lldb-server /usr/bin/lldb-server-${VERSION} 100
+    sudo update-alternatives --set lldb-server /usr/bin/lldb-server-${VERSION}
 	fi
 	# lld (if available)
 	if [ -x "/usr/bin/lld-${VERSION}" ]; then
 		sudo update-alternatives \
 			--install /usr/bin/lld lld /usr/bin/lld-${VERSION} 100
+    sudo update-alternatives --set lld /usr/bin/lld-${VERSION}
+	fi
+	# llvm-strip (if available)
+	if [ -x "/usr/bin/llvm-strip-${VERSION}" ]; then
+		sudo update-alternatives \
+			--install /usr/bin/llvm-strip llvm-strip /usr/bin/llvm-strip-${VERSION} 100
+    sudo update-alternatives --set llvm-strip /usr/bin/llvm-strip-${VERSION}
 	fi
 }
 
