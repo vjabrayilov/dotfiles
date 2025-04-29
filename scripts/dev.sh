@@ -13,7 +13,7 @@ fi
 
 function check_dependencies {
 	echo "1. Checking required dependencies..."
-	required_cmds=("curl" "stow" "luarocks" "tmux" "make" "gcc" "g++" "python3" "python3-venv" "fd-find" "bat")
+	required_cmds=("ripgrep" "curl" "stow" "luarocks" "tmux" "make" "gcc" "g++" "python3" "python3-venv" "fd-find" "bat")
 	sudo apt-get update >/dev/null 2>&1 || echo "   ❌ Error: Failed to update package list"
 	sudo apt-get upgrade -y >/dev/null 2>&1 || echo "   ❌ Error: Failed to upgrade package list"
 	for cmd in "${required_cmds[@]}"; do
