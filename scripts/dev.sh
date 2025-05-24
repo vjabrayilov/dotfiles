@@ -28,6 +28,7 @@ function check_dependencies {
 	mkdir -p ~/.local/bin >/dev/null 2>&1 || echo "   ❌ Error: Failed to create ~/.local/bin directory"
 	ln -s "$(which fdfind)" ~/.local/bin/fd
 	ln -s "$(which batcat)" ~/.local/bin/bat
+	echo "export PATH=\"$PATH:$HOME/.local/bin"\" >>~/.zshrc
 
 }
 
