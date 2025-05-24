@@ -7,8 +7,9 @@ function usage {
 	echo "  dev               Setup a development environment."
 	echo "  virt              Setup a virtualization environment."
 	echo "  llvm [VERSION]    Setup LLVM toolchain (defaults to version 20 if not specified)."
-    echo "  kernel            Setup a kernel development environment."
-    echo "  rust              Setup a Rust development environment."
+	echo "  kernel            Setup a kernel development environment."
+	echo "  rust              Setup a Rust development environment."
+	echo "  docker            Install and configure Docker on Ubuntu Linux."
 	echo "  help              Show this message."
 }
 
@@ -17,6 +18,7 @@ source scripts/virtualization.sh
 source scripts/llvm.sh
 source scripts/kernel.sh
 source scripts/rust.sh
+source scripts/docker.sh
 
 if [ $# -lt 1 ]; then
 	usage
@@ -49,6 +51,9 @@ case "$MODE" in
 "rust")
     setup_rust
     ;;
+"docker")
+	setup_docker
+	;;
 "help")
 	usage
 	;;
