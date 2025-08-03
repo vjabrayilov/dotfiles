@@ -30,6 +30,8 @@ return {
                 "ruff",
                 "rust_analyzer",
                 "clangd",
+                "marksman",
+                "ltex",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -77,22 +79,39 @@ return {
                 ["ruff"] = function()
                     local lspconfig = require("lspconfig")
                     local configs = require 'lspconfig.configs'
-                    if not configs.ruff_lsp and vim.fn.executable('ruff-lsp') == 1 then
-                        configs.ruff_lsp = {
-                            default_config = {
-                                cmd = { 'ruff-lsp' },
-                                filetypes = { 'python' },
-                                root_dir = require('lspconfig').util.find_git_ancestor,
-                                init_options = {
-                                    settings = {
-                                        args = {}
-                                    }
-                                }
-                            }
-                        }
+                    if vim.fn.executable('ruff') == 1 then
+                        lspconfig.ruff.setup({
+                            args = {},
+                            formatOnSave = true,
+                            lintOnSave = true,
+                            filetypes = { 'python' },
+                            root_dir = lspconfig.util.find_git_ancestor,
+                        })
                     end
-                    if configs.ruff_lsp then
-                        lspconfig.ruff_lsp.setup {}
+                end,
+                ["ltex"] = function()
+                    local lspconfig = require("lspconfig")
+                    if vim.fn.executable('ltex-ls') == 1 then
+                        lspconfig.ltex.setup({
+                            capabilities = capabilities,
+                            cmd = { "/opt/homebrew/bin/ltex-ls" },
+                            settings = {
+                                ltex = {
+                                    enabled = { "latex", "tex", "bib", "markdown" },
+                                    language = "en-GB",
+                                    diagnosticSeverity = "info",
+                                    checkFrequency = "save",
+                                    setenceCacheSize = 2000,
+                                    additionalRules = {
+                                        enablePickyRules = false,
+                                    },
+                                    trace = { server = "verbose" },
+                                    disabledRules = {
+                                        ["en-GB"] = { "MORFOLOGIK_RULE_EN_GB" },
+                                    },
+                                },
+                            },
+                        })
                     end
                 end,
 
