@@ -52,3 +52,5 @@ vim.keymap.set('', 'H', '^')
 vim.keymap.set('', 'L', '$')
 -- Open new file adjacent to current file
 vim.keymap.set('n', '<leader>o', ':e <C-R>=expand("%:p:h") . "/" <cr>')
+-- Claude
+vim.keymap.set('n', '<leader>c', '<cmd>ClaudeCode<CR>')
