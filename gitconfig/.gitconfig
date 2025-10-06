@@ -1,9 +1,7 @@
 [user]
-# Please adapt and uncomment the following lines:
 	name = vjabrayilov
 	email = vjabrayilov@cs.columbia.edu
 [commit]
 	template = ~/commit-template.txt
-
 [pull]
 	rebase = true
