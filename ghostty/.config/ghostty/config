@@ -1,7 +1,7 @@
 font-size=16
 cursor-style = block
 cursor-style-blink = false
-theme = GruvboxLight
+theme = Catppuccin Mocha
 keybind = cmd+t=new_split:right
 keybind = cmd+shift+t=new_split:down
 keybind = cmd+opt+t=new_tab
