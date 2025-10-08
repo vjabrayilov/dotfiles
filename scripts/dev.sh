@@ -93,7 +93,7 @@ function apply_dotfiles {
 		return 1
 	}
 
-	for config in nvim zsh p10k tmux; do
+	for config in gitconfig commit nvim zsh p10k tmux; do
 		stow "$config" >/dev/null 2>&1 || echo "   ❌ Error: Failed to stow $config"
 	done
 
