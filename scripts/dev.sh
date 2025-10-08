@@ -26,9 +26,9 @@ function check_dependencies {
 	done
 
 	mkdir -p ~/.local/bin >/dev/null 2>&1 || echo "   ❌ Error: Failed to create ~/.local/bin directory"
-	ln -s "$(which fdfind)" /usr/local/bin/fd
-	ln -s "$(which batcat)" /usr/loca/bin/bat
-	echo "export PATH=\"$PATH:$HOME/.local/bin"\" >>~/.zshrc
+	ln -s "$(which fdfind)" ~/.local/bin/fd
+	ln -s "$(which batcat)" ~/.local/bin/bat
+	# echo "export PATH=\"$PATH:$HOME/.local/bin"\" >>~/.zshrc
 
 }
 
@@ -76,7 +76,7 @@ function install_neovim {
 	}
 	rm nvim-linux-x86_64.tar.gz >/dev/null 2>&1
 	if ! grep -q "/opt/nvim/bin" ~/.zshrc; then
-		echo "export PATH=\"$PATH:/opt/nvim-linux-x86_64/bin"\" >>~/.zshrc
+		echo "export PATH=\"$PATH:$HOME/.local/bin:/opt/nvim-linux-x86_64/bin"\" >>~/.zshrc
 	fi
 }
 
