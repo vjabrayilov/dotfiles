@@ -5,7 +5,7 @@ return {
         name = "plenary"
     },
 
-    "github/copilot.vim",
+    -- "github/copilot.vim",
     "eandrju/cellular-automaton.nvim",
     "gpanders/editorconfig.nvim",
 

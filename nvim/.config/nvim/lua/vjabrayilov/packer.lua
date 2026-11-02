@@ -46,7 +46,7 @@ return require("packer").startup(function(use)
             { "rafamadriz/friendly-snippets" },
         }
     }
-    use("github/copilot.vim")
+    -- use("github/copilot.vim")
     use("eandrju/cellular-automaton.nvim")
     use("laytan/cloak.nvim")
     use("ggandor/leap.nvim")
